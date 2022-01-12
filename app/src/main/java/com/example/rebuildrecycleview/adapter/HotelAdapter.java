@@ -18,9 +18,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
 
     ArrayList<Hotel> hotelList;
 
-    @NonNull
     @Override
-    public HotelAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;

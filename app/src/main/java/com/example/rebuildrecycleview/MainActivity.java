@@ -1,9 +1,11 @@
 package com.example.rebuildrecycleview;
 
 import androidx.appcompat.app.AppCompatActivity;
+//import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+//import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -28,22 +30,22 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new HotelAdapter(mList);
         recyclerView.setAdapter(mAdapter);
 
-        fillData();
+        this.fillData();
     }
 
     private void fillData() {
         Resources resources = getResources();
-        String [] arJudul = resources.getStringArray(R.array.places);
-        String [] arDeskripsi = resources.getStringArray(R.array.place_desc);
+        String [] Judul = resources.getStringArray(R.array.places);
+        String [] Deskripsi = resources.getStringArray(R.array.place_desc);
         TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-        Drawable [] arFoto = new Drawable[a.length()];
-        for (int i = 0; i < arFoto.length; i++){
-            arFoto[i] = a.getDrawable(i);
+        Drawable [] Foto = new Drawable[a.length()];
+        for (int i = 0; i < Foto.length; i++) {
+            Foto[i] = a.getDrawable(i);
         }
         a.recycle();
 
-        for (int i = 0; i < arJudul.length; i++){
-            mList.add(new Hotel(arJudul[i], arDeskripsi[i], arFoto[i]));
+        for (int i = 0; i < Judul.length; i++){
+            mList.add(new Hotel(Judul[i], Deskripsi[i], Foto[i]));
         }
         mAdapter.notifyDataSetChanged();
     }
